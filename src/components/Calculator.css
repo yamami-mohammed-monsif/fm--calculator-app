@@ -1,0 +1,206 @@
+:root {
+  /* theme 1 */
+  --clr-main-bg: hsl(222, 26%, 31%);
+  --clr-keypad-bg: hsl(223, 31%, 20%);
+  --clr-screen-bg: hsl(224, 36%, 15%);
+
+  --clr-key-blue-bg: hsl(225, 21%, 49%);
+  --clr-key-shadow-1: hsl(224, 28%, 35%);
+  --clr-key-red-bg: hsl(6, 63%, 50%);
+  --clr-key-shadow-2: hsl(6, 70%, 34%);
+  --clr-key-orange-bg: hsl(30, 25%, 89%);
+  --clr-key-shadow-3: hsl(28, 16%, 65%);
+
+  --clr-text-1: hsl(0, 0%, 100%);
+  --clr-text-2: hsl(221, 14%, 31%);
+
+  --ff-main: "League Spartan", sans-serif;
+}
+
+.theme-2 {
+  --clr-main-bg: hsl(0, 0%, 90%);
+  --clr-keypad-bg: hsl(0, 5%, 81%);
+  --clr-screen-bg: hsl(0, 0%, 93%);
+
+  --clr-key-blue-bg: hsl(185, 42%, 37%);
+  --clr-key-shadow-1: hsl(185, 58%, 25%);
+  --clr-key-red-bg: hsl(25, 98%, 40%);
+  --clr-key-shadow-2: hsl(25, 99%, 27%);
+  --clr-key-orange-bg: hsl(45, 7%, 89%);
+  --clr-key-shadow-3: hsl(35, 11%, 61%);
+
+  --clr-text-1: hsl(60, 10%, 19%);
+  --clr-text-white: hsl(0, 0%, 100%);
+
+  transition: 350ms;
+}
+
+.theme-3 {
+  --clr-main-bg: hsl(268, 75%, 9%);
+  --clr-keypad-bg: hsl(268, 71%, 12%);
+  --clr-screen-bg: hsl(268, 71%, 12%);
+
+  --clr-key-blue-bg: hsl(281, 89%, 26%);
+  --clr-key-shadow-1: hsl(285, 91%, 52%);
+  --clr-key-red-bg: hsl(176, 100%, 44%);
+  --clr-key-shadow-2: hsl(177, 92%, 70%);
+  --clr-key-orange-bg: hsl(268, 47%, 21%);
+  --clr-key-shadow-3: hsl(290, 70%, 36%);
+
+  --clr-text-2: hsl(52, 100%, 62%);
+  --clr-text-1: hsl(52, 100%, 62%);
+  --clr-text-white: hsl(0, 0%, 100%);
+
+  transition: 350ms;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+button {
+  border: none;
+  background: inherit;
+  font: inherit;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+
+  background-color: var(--clr-main-bg);
+  font-family: var(--ff-main);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator-container {
+  width: min(90%, 500px);
+}
+
+.claculator-header {
+  color: var(--clr-text-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.claculator-header > p {
+  font-size: 1.5rem;
+}
+
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle-container span {
+  font-size: 0.7rem;
+}
+
+.theme-toggle {
+  width: 4rem;
+  height: 1.5rem;
+  background-color: var(--clr-keypad-bg);
+  border-radius: 10rem;
+  padding-inline: 0.2rem;
+  position: relative;
+}
+
+.theme-number {
+  position: absolute;
+  top: -70%;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.theme-number span {
+  flex: 1;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: calc(100% / 3);
+  background-color: var(--clr-key-red-bg);
+  border-radius: 50%;
+  transform: scale(0.7);
+  transition: 350ms ease;
+}
+
+.input-box {
+  background-color: var(--clr-screen-bg);
+  color: var(--clr-text-1);
+  height: 5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-block: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.keypad {
+  background-color: var(--clr-keypad-bg);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.8rem, 2vw, 1rem);
+  padding: clamp(1rem, 3vw, 2rem);
+  border-radius: 0.5rem;
+}
+
+.sapn-two {
+  grid-column: span 2;
+}
+
+button {
+  padding: 0.6rem 1.5rem;
+  background-color: var(--clr-key-orange-bg);
+  color: var(--clr-text-2);
+  border-radius: 0.3rem;
+  box-shadow: 0 3px var(--clr-key-shadow-3);
+}
+
+button:hover,
+button:focus {
+  cursor: pointer;
+  opacity: 70%;
+}
+
+.delete,
+.reset {
+  background-color: var(--clr-key-blue-bg);
+  color: var(--clr-text-1);
+  box-shadow: 0 3px var(--clr-key-shadow-1);
+}
+
+.equal {
+  background-color: var(--clr-key-red-bg);
+  color: var(--clr-text-1);
+  box-shadow: 0 3px var(--clr-key-shadow-2);
+}
+
+@media (max-width: 500px) {
+  button {
+    padding: 0.5rem 1rem;
+  }
+}
